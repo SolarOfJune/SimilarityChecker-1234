@@ -6,9 +6,18 @@ class SimilarityChecker
 public:
 	int checkLength(string str1, string str2)
 	{
-		if (str2 == "abc")
-			throw invalid_argument("Invalid argument lower class");
+		checkLowerClass(str1);
+		checkLowerClass(str2);
 
 		return 0;
+	}
+private:
+	void checkLowerClass(string str1)
+	{
+		for (char ch : str1)
+		{
+			if (ch > 'a' && ch < 'z')
+				throw invalid_argument("Invalid argument lower class");
+		}
 	}
 };
