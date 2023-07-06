@@ -30,6 +30,10 @@ public:
 		{
 			return MIN_SCORE_FOR_LENGTH;
 		}
+
+		int gap = long_len - short_len;
+		cout << gap << ' ' << short_len << endl;
+		return (short_len - gap) * MAX_SCORE_FOR_LENGTH / short_len;
 	}
 private:
 	const int MAX_SCORE_FOR_LENGTH = 60;

@@ -29,11 +29,15 @@ TEST_F(SimilarityFixture, ExceptionCase_number) {
 	assertInvalidArgu("A1C", "ABC");
 }
 
-TEST_F(SimilarityFixture, Score60) {
+TEST_F(SimilarityFixture, LenScore60) {
 	EXPECT_EQ(60, checker.checkLength("ABC", "DEF"));
 }
 
-TEST_F(SimilarityFixture, Score0) {
+TEST_F(SimilarityFixture, LenScore0) {
 	EXPECT_EQ(0, checker.checkLength("ABC", "D"));
 	EXPECT_EQ(0, checker.checkLength("A", "DBC"));
+}
+
+TEST_F(SimilarityFixture, LenScore) {
+	EXPECT_EQ(30, checker.checkLength("ABC", "AB"));
 }
