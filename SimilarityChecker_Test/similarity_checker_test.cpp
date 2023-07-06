@@ -35,4 +35,5 @@ TEST_F(SimilarityFixture, Score60) {
 
 TEST_F(SimilarityFixture, Score0) {
 	EXPECT_EQ(0, checker.checkLength("ABC", "D"));
+	EXPECT_EQ(0, checker.checkLength("A", "DBC"));
 }
