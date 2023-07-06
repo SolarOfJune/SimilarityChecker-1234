@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <iostream>
 using namespace std;
 
 class SimilarityChecker
@@ -9,6 +10,9 @@ public:
 		checkUpperClass(str1);
 		checkUpperClass(str2);
 
+		if (str1.length() == str2.length())
+			return 60;
+
 		return 0;
 	}
 private:
@@ -16,7 +20,7 @@ private:
 	{
 		for (char ch : str)
 		{
-			if (ch <= 'A' || ch >= 'Z')
+			if (ch < 'A' || ch > 'Z')
 			{
 				throw invalid_argument("Must be use upper class");
 			}

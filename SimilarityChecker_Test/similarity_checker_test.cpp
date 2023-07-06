@@ -28,3 +28,7 @@ TEST_F(SimilarityFixture, ExceptionCase_number) {
 	assertInvalidArgu("ABC", "123");
 	assertInvalidArgu("A1C", "ABC");
 }
+
+TEST_F(SimilarityFixture, Score60) {
+	EXPECT_EQ(60, checker.checkLength("ABC", "DEF"));
+}
