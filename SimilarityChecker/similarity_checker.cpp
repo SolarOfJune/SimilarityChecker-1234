@@ -11,11 +11,14 @@ public:
 		checkUpperClass(str2);
 
 		if (str1.length() == str2.length())
-			return 60;
+		{
+			return MAX_SCORE_FOR_LENGTH;
+		}
 
 		return 0;
 	}
 private:
+	const int MAX_SCORE_FOR_LENGTH = 60;
 	void checkUpperClass(string str)
 	{
 		for (char ch : str)
