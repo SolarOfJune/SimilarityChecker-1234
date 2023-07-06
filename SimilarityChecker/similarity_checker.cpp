@@ -6,29 +6,20 @@ class SimilarityChecker
 public:
 	int checkLength(string str1, string str2)
 	{
-		checkLowerClass(str1);
-		checkLowerClass(str2);
-		checkNumber(str1);
-		checkNumber(str2);
+		checkUpperClass(str1);
+		checkUpperClass(str2);
 
 		return 0;
 	}
 private:
-	void checkLowerClass(string str1)
+	void checkUpperClass(string str)
 	{
-		for (char ch : str1)
+		for (char ch : str)
 		{
-			if (ch > 'a' && ch < 'z')
-				throw invalid_argument("Invalid argument lower class");
-		}
-	}
-
-	void checkNumber(string str2)
-	{
-		for (char ch : str2)
-		{
-			if (ch > '0' && ch < '9')
-				throw invalid_argument("Invalid argument number");
+			if (ch <= 'A' || ch >= 'Z')
+			{
+				throw invalid_argument("Must be use upper class");
+			}
 		}
 	}
 };
