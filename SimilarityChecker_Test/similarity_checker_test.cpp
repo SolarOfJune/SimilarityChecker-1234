@@ -1,14 +1,30 @@
 #include "pch.h"
 #include "../SimilarityChecker/similarity_checker.cpp"
 
-TEST(TestCaseName, ExceptionCase_lower) {
+class SimilarityFixture: public testing::Test
+{
+public:
 	SimilarityChecker checker;
-	EXPECT_THROW(checker.checkLength("ABC", "abc"), invalid_argument);
-	EXPECT_THROW(checker.checkLength("AbC", "ABC"), invalid_argument);
+	void assertInvalidArgu(string str1, string str2)
+	{
+		try
+		{
+			checker.checkLength(str1, str2);
+			FAIL();
+		}
+		catch (exception e)
+		{
+			//PASS
+		}
+	}
+};
+
+TEST_F(SimilarityFixture, ExceptionCase_lower) {
+	assertInvalidArgu("ABC", "abc");
+	assertInvalidArgu("AbC", "ABC");
 }
 
-TEST(TestCaseName, ExceptionCase_number) {
-	SimilarityChecker checker;
-	EXPECT_THROW(checker.checkLength("ABC", "123"), invalid_argument);
-	EXPECT_THROW(checker.checkLength("A1C", "ABC"), invalid_argument);
+TEST_F(SimilarityFixture, ExceptionCase_number) {
+	assertInvalidArgu("ABC", "123");
+	assertInvalidArgu("A1C", "ABC");
 }
