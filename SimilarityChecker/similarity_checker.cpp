@@ -1,17 +1,9 @@
 #include <stdexcept>
-#include <iostream>
 using namespace std;
 
 class SimilarityChecker
 {
 public:
-	pair<int, int> getLongShortString(const string& str1, const string& str2)
-	{
-		if (str1.length() > str2.length())
-			return make_pair(str1.length(), str2.length());
-		return make_pair(str2.length(), str1.length());
-	}
-
 	int checkLength(string str1, string str2)
 	{
 		checkUpperClass(str1);
@@ -32,7 +24,6 @@ public:
 		}
 
 		int gap = long_len - short_len;
-		cout << gap << ' ' << short_len << endl;
 		return (short_len - gap) * MAX_SCORE_FOR_LENGTH / short_len;
 	}
 private:
@@ -47,5 +38,11 @@ private:
 				throw invalid_argument("Must be use upper class");
 			}
 		}
+	}
+	pair<int, int> getLongShortString(const string& str1, const string& str2)
+	{
+		if (str1.length() > str2.length())
+			return make_pair(str1.length(), str2.length());
+		return make_pair(str2.length(), str1.length());
 	}
 };
