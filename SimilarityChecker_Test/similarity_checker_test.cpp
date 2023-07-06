@@ -32,3 +32,7 @@ TEST_F(SimilarityFixture, ExceptionCase_number) {
 TEST_F(SimilarityFixture, Score60) {
 	EXPECT_EQ(60, checker.checkLength("ABC", "DEF"));
 }
+
+TEST_F(SimilarityFixture, Score0) {
+	EXPECT_EQ(0, checker.checkLength("ABC", "D"));
+}
