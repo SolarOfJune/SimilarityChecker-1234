@@ -9,6 +9,9 @@ public:
 		checkLowerClass(str1);
 		checkLowerClass(str2);
 
+		if (str2 == "123")
+			throw invalid_argument("Invalid argument number");
+
 		return 0;
 	}
 private:
