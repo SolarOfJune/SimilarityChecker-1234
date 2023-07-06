@@ -10,4 +10,5 @@ TEST(TestCaseName, ExceptionCase_lower) {
 TEST(TestCaseName, ExceptionCase_number) {
 	SimilarityChecker checker;
 	EXPECT_THROW(checker.checkLength("ABC", "123"), invalid_argument);
+	EXPECT_THROW(checker.checkLength("A1C", "ABC"), invalid_argument);
 }
